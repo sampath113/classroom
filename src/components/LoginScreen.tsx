@@ -39,17 +39,17 @@ export const LoginScreen = ({ role, onBack, onLogin }: LoginScreenProps) => {
       {/* Header */}
       <div className="flex-shrink-0 pt-4 pb-8 px-6">
         <div className="flex items-center mb-8">
-          <Button variant="ghost" size="icon-sm" onClick={onBack} className="mr-3 bg-card/50 backdrop-blur-sm">
+          <Button variant="ghost" size="icon-sm" onClick={onBack} className="mr-3">
             <ArrowLeft className="w-5 h-5" />
           </Button>
           <div className="flex items-center">
-            <div className="text-3xl mr-4">{role === 'student' ? '🎓' : '👨‍🏫'}</div>
+            <div className="text-2xl mr-4">{role === 'student' ? '👤' : '👨‍💼'}</div>
             <div>
-              <h1 className="text-2xl font-bold text-foreground">
+              <h1 className="text-xl font-semibold text-foreground">
                 {role === 'student' ? 'Student Login' : 'Teacher Login'}
               </h1>
               <p className="text-muted-foreground text-sm mt-1">
-                Enter your details to continue
+                Enter your details
               </p>
             </div>
           </div>
@@ -59,21 +59,21 @@ export const LoginScreen = ({ role, onBack, onLogin }: LoginScreenProps) => {
       {/* Main Content */}
       <div className="flex-1 px-6">
         <div className="mobile-container">
-          <Card className="p-8 shadow-[var(--shadow-medium)] bg-card/95 backdrop-blur-md">
-            <form onSubmit={handleSubmit} className="space-y-8">
+          <Card className="p-6 shadow-[var(--shadow-card)]">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-3">
                 <Label htmlFor="name" className="text-base font-medium text-foreground">
                   Full Name
                 </Label>
                 <div className="relative">
-                  <User className="absolute left-4 top-4 w-5 h-5 text-muted-foreground" />
+                  <User className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
                   <Input
                     id="name"
                     type="text"
                     placeholder="Enter your full name"
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    className="pl-12"
+                    className="pl-10"
                   />
                 </div>
               </div>
@@ -83,14 +83,14 @@ export const LoginScreen = ({ role, onBack, onLogin }: LoginScreenProps) => {
                   {role === 'student' ? 'Roll Number' : 'Teacher ID'}
                 </Label>
                 <div className="relative">
-                  <Hash className="absolute left-4 top-4 w-5 h-5 text-muted-foreground" />
+                  <Hash className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
                   <Input
                     id="rollNumber"
                     type="text"
                     placeholder={role === 'student' ? "Enter roll number" : "Enter teacher ID"}
                     value={formData.rollNumber}
                     onChange={(e) => handleInputChange('rollNumber', e.target.value)}
-                    className="pl-12"
+                    className="pl-10"
                   />
                 </div>
               </div>
@@ -100,14 +100,14 @@ export const LoginScreen = ({ role, onBack, onLogin }: LoginScreenProps) => {
                   Class Code
                 </Label>
                 <div className="relative">
-                  <Key className="absolute left-4 top-4 w-5 h-5 text-muted-foreground" />
+                  <Key className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
                   <Input
                     id="classCode"
                     type="text"
                     placeholder="Enter class code"
                     value={formData.classCode}
                     onChange={(e) => handleInputChange('classCode', e.target.value)}
-                    className="pl-12"
+                    className="pl-10"
                   />
                 </div>
               </div>
@@ -122,7 +122,7 @@ export const LoginScreen = ({ role, onBack, onLogin }: LoginScreenProps) => {
           <Button
             variant="default"
             size="lg"
-            className="w-full h-14 text-lg font-semibold"
+            className="w-full h-12 text-base font-medium"
             disabled={!isFormValid}
             onClick={handleSubmit}
           >

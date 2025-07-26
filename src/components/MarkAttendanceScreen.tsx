@@ -78,23 +78,22 @@ export const MarkAttendanceScreen = ({ onBack, className }: MarkAttendanceScreen
       <div className="status-bar-height" />
 
       {/* Header */}
-      <div className="flex-shrink-0 bg-card/50 backdrop-blur-md border-b border-border/30">
-        <div className="flex items-center justify-between p-6">
-          <div className="flex items-center space-x-4">
+      <div className="flex-shrink-0 bg-card border-b border-border">
+        <div className="flex items-center justify-between p-4">
+          <div className="flex items-center space-x-3">
             <Button
               variant="ghost"
               size="icon-sm"
               onClick={onBack}
-              className="bg-card/50 backdrop-blur-sm"
             >
-              <ArrowLeft className="h-5 w-5" />
+              <ArrowLeft className="h-4 w-4" />
             </Button>
             <div>
-              <h1 className="text-xl font-bold text-foreground">Mark Attendance</h1>
-              <p className="text-base text-muted-foreground">CS101 - Data Structures</p>
+              <h1 className="text-lg font-semibold text-foreground">Mark Attendance</h1>
+              <p className="text-sm text-muted-foreground">CS101 - Data Structures</p>
             </div>
           </div>
-          <Badge variant="secondary" className="text-base px-3 py-1 rounded-full">
+          <Badge variant="secondary" className="text-sm px-2 py-1">
             Today
           </Badge>
         </div>

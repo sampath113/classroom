@@ -187,26 +187,25 @@ export const AlertsScreen = ({ userRole, onBack, className }: AlertsScreenProps)
       <div className="status-bar-height" />
 
       {/* Header */}
-      <div className="flex-shrink-0 bg-card/50 backdrop-blur-md border-b border-border/30">
-        <div className="flex items-center justify-between p-6">
-          <div className="flex items-center space-x-4">
+      <div className="flex-shrink-0 bg-card border-b border-border">
+        <div className="flex items-center justify-between p-4">
+          <div className="flex items-center space-x-3">
             <Button
               variant="ghost"
               size="icon-sm"
               onClick={onBack}
-              className="bg-card/50 backdrop-blur-sm"
             >
-              <ArrowLeft className="h-5 w-5" />
+              <ArrowLeft className="h-4 w-4" />
             </Button>
             <div>
-              <h1 className="text-xl font-bold text-foreground">Smart Alerts</h1>
-              <p className="text-base text-muted-foreground">
-                {userRole === 'teacher' ? 'Class insights & notifications' : 'Your attendance insights'}
+              <h1 className="text-lg font-semibold text-foreground">Alerts</h1>
+              <p className="text-sm text-muted-foreground">
+                {userRole === 'teacher' ? 'Class insights' : 'Your insights'}
               </p>
             </div>
           </div>
-          <Badge variant="secondary" className="text-base px-3 py-1 rounded-full">
-            {activeAlerts.length} active
+          <Badge variant="secondary" className="text-sm px-2 py-1">
+            {activeAlerts.length}
           </Badge>
         </div>
       </div>
@@ -271,25 +270,25 @@ export const AlertsScreen = ({ userRole, onBack, className }: AlertsScreenProps)
           <div className="mt-12 space-y-6">
             <h2 className="text-xl font-bold text-foreground">Quick Insights</h2>
 
-            <div className="grid grid-cols-1 gap-6">
-              <Card className="p-6 bg-card/95 backdrop-blur-md">
-                <div className="flex items-center space-x-4">
-                  <TrendingUp className="h-6 w-6 text-green-500" />
+            <div className="grid grid-cols-1 gap-4">
+              <Card className="p-4 shadow-[var(--shadow-card)]">
+                <div className="flex items-center space-x-3">
+                  <TrendingUp className="h-5 w-5 text-success" />
                   <div>
-                    <h3 className="font-semibold text-lg text-foreground">Improvement Tip</h3>
-                    <p className="text-base text-muted-foreground">
+                    <h3 className="font-medium text-base text-foreground">Improvement Tip</h3>
+                    <p className="text-sm text-muted-foreground">
                       Attend 3 more classes to reach your 90% goal
                     </p>
                   </div>
                 </div>
               </Card>
 
-              <Card className="p-6 bg-card/95 backdrop-blur-md">
-                <div className="flex items-center space-x-4">
-                  <Users className="h-6 w-6 text-blue-500" />
+              <Card className="p-4 shadow-[var(--shadow-card)]">
+                <div className="flex items-center space-x-3">
+                  <Users className="h-5 w-5 text-info" />
                   <div>
-                    <h3 className="font-semibold text-lg text-foreground">Class Ranking</h3>
-                    <p className="text-base text-muted-foreground">
+                    <h3 className="font-medium text-base text-foreground">Class Ranking</h3>
+                    <p className="text-sm text-muted-foreground">
                       You're ranked 12th out of 30 students
                     </p>
                   </div>

@@ -13,24 +13,24 @@ export const RoleCard = ({ icon, title, description, selected, onClick }: RoleCa
     <div
       onClick={onClick}
       className={cn(
-        "relative p-6 rounded-3xl border-2 cursor-pointer transition-all duration-200",
-        "hover:shadow-[var(--shadow-medium)] active:scale-[0.98] backdrop-blur-sm",
+        "relative p-6 rounded-xl border cursor-pointer transition-all duration-200",
+        "hover:shadow-[var(--shadow-card)] active:scale-[0.99]",
         selected
-          ? "border-primary bg-primary/5 shadow-[var(--shadow-medium)] ring-2 ring-primary/20"
-          : "border-border/50 bg-card/80 hover:border-primary/30 hover:bg-card shadow-[var(--shadow-card)]"
+          ? "border-primary bg-primary/5 shadow-[var(--shadow-card)]"
+          : "border-border bg-card hover:border-primary/50"
       )}
     >
       <div className="flex items-center space-x-4">
-        <div className="text-4xl">{icon}</div>
+        <div className="text-2xl">{icon}</div>
         <div className="flex-1">
-          <h3 className="font-semibold text-lg text-foreground">{title}</h3>
+          <h3 className="font-medium text-lg text-foreground">{title}</h3>
           <p className="text-sm text-muted-foreground mt-1">{description}</p>
         </div>
         <div className={cn(
-          "w-5 h-5 rounded-full border-2 transition-colors",
+          "w-4 h-4 rounded-full border transition-colors",
           selected
             ? "bg-primary border-primary"
-            : "border-muted-foreground"
+            : "border-muted-foreground/40"
         )}>
           {selected && (
             <div className="w-full h-full rounded-full bg-primary-foreground scale-50" />

@@ -146,7 +146,7 @@ export const CalendarView = ({ userRole, onBack }: CalendarViewProps) => {
         <AttendanceLegend />
 
         {/* Calendar */}
-        <Card className="p-6 bg-card/95 backdrop-blur-md shadow-[var(--shadow-medium)]">
+        <Card className="p-4 shadow-[var(--shadow-card)]">
           <Calendar
             mode="single"
             selected={selectedDate}

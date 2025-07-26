@@ -15,71 +15,71 @@ export const TeacherDashboard = ({ userName, onNavigate }: TeacherDashboardProps
   const className = "Computer Science 3A";
 
   return (
-    <div className="flex-1 px-6 pb-24 pt-8 space-y-8">
+    <div className="flex-1 px-6 pb-24 pt-8 space-y-6">
       {/* Status Bar Spacing */}
       <div className="status-bar-height" />
 
       {/* Greeting */}
       <div className="text-center">
-        <h1 className="text-3xl font-bold text-foreground mb-3">
-          Hi, {userName} 👨‍🏫
+        <h1 className="text-2xl font-semibold text-foreground mb-2">
+          Hi, {userName} 👨‍💼
         </h1>
-        <p className="text-muted-foreground text-lg">{className}</p>
+        <p className="text-muted-foreground text-base">{className}</p>
       </div>
 
       {/* Mark Attendance CTA */}
-      <Card className="p-8 shadow-[var(--shadow-medium)] bg-gradient-to-r from-primary/10 to-primary-light/10 backdrop-blur-md">
+      <Card className="p-6 shadow-[var(--shadow-card)]">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="font-semibold text-lg text-foreground mb-3">Today's Attendance</h3>
-            <p className="text-muted-foreground text-base">
-              Quick and easy attendance marking
+            <h3 className="font-medium text-base text-foreground mb-2">Today's Attendance</h3>
+            <p className="text-muted-foreground text-sm">
+              Mark attendance for your class
             </p>
           </div>
           <Button
             variant="default"
             onClick={() => onNavigate('mark-attendance')}
-            className="flex-col h-20 px-8 space-y-1"
+            className="h-10 px-4"
           >
-            <Plus className="w-6 h-6" />
-            <span className="text-base font-medium">Mark</span>
+            <Plus className="w-4 h-4 mr-2" />
+            Mark
           </Button>
         </div>
       </Card>
 
       {/* Today's Summary */}
-      <Card className="p-8 shadow-[var(--shadow-medium)] bg-card/95 backdrop-blur-md">
-        <h3 className="font-semibold text-lg text-foreground mb-6">Today's Summary</h3>
-        <div className="grid grid-cols-3 gap-6 text-center">
+      <Card className="p-6 shadow-[var(--shadow-card)]">
+        <h3 className="font-medium text-base text-foreground mb-4">Today's Summary</h3>
+        <div className="grid grid-cols-3 gap-4 text-center">
           <div>
-            <div className="text-2xl font-bold text-success mb-2">
+            <div className="text-xl font-semibold text-success mb-1">
               {todayPresent}
             </div>
-            <div className="text-sm text-muted-foreground">Present</div>
+            <div className="text-xs text-muted-foreground">Present</div>
           </div>
           <div>
-            <div className="text-2xl font-bold text-destructive mb-2">
+            <div className="text-xl font-semibold text-destructive mb-1">
               {totalStudents - todayPresent}
             </div>
-            <div className="text-sm text-muted-foreground">Absent</div>
+            <div className="text-xs text-muted-foreground">Absent</div>
           </div>
           <div>
-            <div className="text-2xl font-bold text-primary mb-2">
+            <div className="text-xl font-semibold text-primary mb-1">
               {attendancePercentage}%
             </div>
-            <div className="text-sm text-muted-foreground">Rate</div>
+            <div className="text-xs text-muted-foreground">Rate</div>
           </div>
         </div>
 
         {/* Visual indicator */}
-        <div className="mt-6">
-          <div className="flex items-center justify-between text-base text-muted-foreground mb-3">
+        <div className="mt-4">
+          <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
             <span>Class attendance</span>
             <span>{todayPresent}/{totalStudents}</span>
           </div>
-          <div className="w-full bg-secondary rounded-full h-3">
+          <div className="w-full bg-secondary rounded-full h-2">
             <div
-              className="bg-primary h-3 rounded-full transition-all duration-500 shadow-sm"
+              className="bg-primary h-2 rounded-full transition-all duration-500"
               style={{ width: `${attendancePercentage}%` }}
             />
           </div>
@@ -87,47 +87,45 @@ export const TeacherDashboard = ({ userName, onNavigate }: TeacherDashboardProps
       </Card>
 
       {/* Class Insights */}
-      <Card className="p-8 shadow-[var(--shadow-medium)] bg-card/95 backdrop-blur-md">
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="font-semibold text-lg text-foreground">Class Insights</h3>
-          <CheckCircle className="w-6 h-6 text-success" />
+      <Card className="p-6 shadow-[var(--shadow-card)]">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-medium text-base text-foreground">Class Insights</h3>
+          <CheckCircle className="w-5 h-5 text-success" />
         </div>
-        <div className="space-y-4">
-          <div className="flex items-center justify-between text-base">
-            <span className="text-muted-foreground">Average attendance this week</span>
-            <span className="font-semibold text-foreground">89%</span>
+        <div className="space-y-3">
+          <div className="flex items-center justify-between text-sm">
+            <span className="text-muted-foreground">Average this week</span>
+            <span className="font-medium text-foreground">89%</span>
           </div>
-          <div className="flex items-center justify-between text-base">
-            <span className="text-muted-foreground">Students at risk (&lt; 75%)</span>
-            <span className="font-semibold text-warning">3 students</span>
+          <div className="flex items-center justify-between text-sm">
+            <span className="text-muted-foreground">At risk (&lt; 75%)</span>
+            <span className="font-medium text-warning">3 students</span>
           </div>
-          <div className="flex items-center justify-between text-base">
-            <span className="text-muted-foreground">Perfect attendance streak</span>
-            <span className="font-semibold text-success">12 students</span>
+          <div className="flex items-center justify-between text-sm">
+            <span className="text-muted-foreground">Perfect streak</span>
+            <span className="font-medium text-success">12 students</span>
           </div>
         </div>
       </Card>
 
       {/* Action Buttons */}
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 gap-4">
         <Button
-          variant="professional"
-          size="lg"
+          variant="outline"
           onClick={() => onNavigate('calendar')}
-          className="h-20 flex-col space-y-2"
+          className="h-12 flex-col space-y-1"
         >
-          <Calendar className="w-6 h-6" />
-          <span className="text-base font-medium">Calendar</span>
+          <Calendar className="w-4 h-4" />
+          <span className="text-sm">Calendar</span>
         </Button>
 
         <Button
-          variant="professional"
-          size="lg"
+          variant="outline"
           onClick={() => onNavigate('analytics')}
-          className="h-20 flex-col space-y-2"
+          className="h-12 flex-col space-y-1"
         >
-          <BarChart3 className="w-6 h-6" />
-          <span className="text-base font-medium">Analytics</span>
+          <BarChart3 className="w-4 h-4" />
+          <span className="text-sm">Analytics</span>
         </Button>
       </div>
     </div>

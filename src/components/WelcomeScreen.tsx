@@ -22,32 +22,32 @@ export const WelcomeScreen = ({ onRoleSelect }: WelcomeScreenProps) => {
       <div className="status-bar-height" />
 
       {/* Header */}
-      <div className="flex-shrink-0 pt-8 pb-8 px-6 text-center">
-        <div className="w-20 h-20 bg-card rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-[var(--shadow-card)]">
-          <GraduationCap className="w-10 h-10 text-primary" />
+      <div className="flex-shrink-0 pt-16 pb-16 px-6 text-center">
+        <div className="w-16 h-16 bg-card rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-[var(--shadow-card)]">
+          <span className="text-2xl">📋</span>
         </div>
-        <h1 className="text-3xl font-bold text-foreground mb-3">AttendanceTracker</h1>
-        <p className="text-muted-foreground text-lg">Smart attendance management for everyone</p>
+        <h1 className="text-2xl font-bold text-foreground mb-3">AttendanceTracker</h1>
+        <p className="text-muted-foreground text-base">Simple attendance management</p>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 px-6">
         <div className="mobile-container">
-          <h2 className="text-2xl font-semibold text-foreground mb-8 text-center">Who are you?</h2>
+          <h2 className="text-xl font-medium text-foreground mb-8 text-center">Choose your role</h2>
 
-          <div className="space-y-6 mb-12">
+          <div className="space-y-4 mb-12">
             <RoleCard
-              icon="🎓"
+              icon="👤"
               title="Student"
-              description="Track your attendance and view insights"
+              description="Track attendance"
               selected={selectedRole === 'student'}
               onClick={() => setSelectedRole('student')}
             />
 
             <RoleCard
-              icon="👨‍🏫"
+              icon="👨‍💼"
               title="Teacher"
-              description="Manage class attendance and analytics"
+              description="Manage attendance"
               selected={selectedRole === 'teacher'}
               onClick={() => setSelectedRole('teacher')}
             />
@@ -61,15 +61,15 @@ export const WelcomeScreen = ({ onRoleSelect }: WelcomeScreenProps) => {
           <Button
             variant="default"
             size="lg"
-            className="w-full h-14 text-lg font-semibold"
+            className="w-full h-12 text-base font-medium"
             disabled={!selectedRole}
             onClick={handleContinue}
           >
             Continue
           </Button>
 
-          <p className="text-sm text-muted-foreground text-center mt-6 opacity-80">
-            You can change your role later in settings
+          <p className="text-sm text-muted-foreground text-center mt-6">
+            You can change this later
           </p>
         </div>
       </div>

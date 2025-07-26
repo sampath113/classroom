@@ -8,71 +8,64 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Professional purple gradient theme matching the screenshots */
-    --background: 270 50% 85%;
-    --background-gradient: linear-gradient(180deg, hsl(270 50% 85%) 0%, hsl(280 45% 88%) 100%);
-    --foreground: 240 10% 15%;
+    /* Simple minimal light mode */
+    --background: 0 0% 100%;
+    --background-gradient: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 15%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 15%;
+    --popover-foreground: 0 0% 15%;
 
-    /* Updated primary colors to match professional theme */
-    --primary: 240 100% 27%;
+    /* Simple primary colors */
+    --primary: 0 0% 15%;
     --primary-foreground: 0 0% 100%;
 
-    --primary-light: 240 100% 35%;
-    --primary-dark: 240 100% 20%;
+    --primary-light: 0 0% 25%;
+    --primary-dark: 0 0% 10%;
 
-    /* Subtle secondary colors */
-    --secondary: 240 20% 96%;
-    --secondary-foreground: 240 10% 25%;
+    /* Minimal secondary colors */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 20%;
 
-    /* Muted colors for subtle elements */
-    --muted: 240 10% 96%;
-    --muted-foreground: 240 5% 55%;
+    /* Clean muted colors */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 240 20% 96%;
-    --accent-foreground: 240 10% 25%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 20%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Professional borders and inputs */
-    --border: 240 20% 90%;
-    --input: 240 20% 94%;
-    --ring: 240 100% 27%;
+    /* Minimal borders and inputs */
+    --border: 0 0% 90%;
+    --input: 0 0% 98%;
+    --ring: 0 0% 15%;
 
-    --success: 120 60% 50%;
-    --warning: 38 92% 50%;
-    --info: 210 84% 50%;
+    --success: 120 60% 40%;
+    --warning: 35 80% 50%;
+    --info: 210 80% 45%;
 
-    /* Professional gradients and shadows */
-    --gradient-primary: linear-gradient(135deg, hsl(240 100% 27%), hsl(240 100% 35%));
-    --gradient-background: linear-gradient(180deg, hsl(270 50% 85%) 0%, hsl(280 45% 88%) 100%);
-    --shadow-soft: 0 2px 12px -2px hsl(240 100% 27% / 0.08);
-    --shadow-medium: 0 4px 20px -4px hsl(240 100% 27% / 0.12);
-    --shadow-card: 0 2px 8px -1px hsl(240 10% 15% / 0.06);
+    /* Minimal shadows */
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 15%), hsl(0 0% 25%));
+    --gradient-background: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    --shadow-soft: 0 1px 3px 0 hsl(0 0% 0% / 0.1);
+    --shadow-medium: 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-card: 0 1px 3px 0 hsl(0 0% 0% / 0.1);
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 15%;
+    --sidebar-primary: 0 0% 15%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 20%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 15%;
   }
 
   .dark {
@@ -163,34 +156,18 @@ All colors MUST be HSL.
   }
 }
 
-/* Professional mobile UI utilities */
+/* Simple mobile UI utilities */
 @layer utilities {
   .mobile-container {
-    @apply max-w-md mx-auto px-6;
-  }
-
-  .professional-card {
-    @apply bg-card rounded-2xl shadow-[var(--shadow-card)] border-0;
-  }
-
-  .professional-button {
-    @apply rounded-2xl font-medium transition-all duration-200;
-  }
-
-  .professional-input {
-    @apply rounded-2xl border-input bg-input/50 backdrop-blur-sm;
+    @apply max-w-md mx-auto px-4;
   }
 
   .status-bar-height {
-    @apply pt-12;
+    @apply pt-8;
   }
 
   .gradient-background {
     background: var(--background-gradient);
-  }
-
-  .glass-effect {
-    @apply bg-white/80 backdrop-blur-md border border-white/20;
   }
 
   .mobile-safe-area {
