@@ -15,29 +15,29 @@ export const BottomNavigation = ({ activeTab, onTabChange }: BottomNavigationPro
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-background border-t border-border">
-      <div className="flex items-center justify-around px-4 py-2">
+    <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-md border-t border-border/30 shadow-[var(--shadow-medium)]">
+      <div className="flex items-center justify-around px-6 py-4">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
-          
+
           return (
             <button
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
               className={cn(
-                "flex flex-col items-center p-2 rounded-xl transition-colors min-w-0 flex-1",
-                isActive 
-                  ? "text-primary" 
-                  : "text-muted-foreground hover:text-foreground"
+                "flex flex-col items-center p-3 rounded-2xl transition-all duration-200 min-w-0 flex-1 active:scale-95",
+                isActive
+                  ? "text-primary bg-primary/10"
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
               )}
             >
               <Icon className={cn(
-                "w-5 h-5 mb-1",
+                "w-6 h-6 mb-2",
                 isActive && "text-primary"
               )} />
               <span className={cn(
-                "text-xs font-medium",
+                "text-sm font-medium",
                 isActive && "text-primary"
               )}>
                 {tab.label}
@@ -46,6 +46,8 @@ export const BottomNavigation = ({ activeTab, onTabChange }: BottomNavigationPro
           );
         })}
       </div>
+      {/* Safe area for devices with home indicator */}
+      <div className="h-safe-bottom" />
     </div>
   );
 };

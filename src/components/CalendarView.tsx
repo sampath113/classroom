@@ -110,37 +110,43 @@ export const CalendarView = ({ userRole, onBack }: CalendarViewProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen gradient-background flex flex-col">
+      {/* Status Bar Spacing */}
+      <div className="status-bar-height" />
+
       {/* Header */}
-      <div className="flex-shrink-0 pt-16 pb-4 px-6">
-        <div className="flex items-center justify-between mb-4">
-          <Button variant="ghost" size="sm" onClick={onBack}>
-            <ArrowLeft className="w-4 h-4" />
+      <div className="flex-shrink-0 bg-card/50 backdrop-blur-md border-b border-border/30">
+        <div className="flex items-center justify-between p-6">
+          <Button variant="ghost" size="icon-sm" onClick={onBack} className="bg-card/50 backdrop-blur-sm">
+            <ArrowLeft className="w-5 h-5" />
           </Button>
-          <h1 className="text-xl font-semibold text-foreground">Attendance Calendar</h1>
+          <h1 className="text-xl font-bold text-foreground">Attendance Calendar</h1>
           <div /> {/* Spacer */}
         </div>
-
-        {/* Month Navigation */}
-        <div className="flex items-center justify-between mb-4">
-          <Button variant="ghost" size="sm" onClick={() => navigateMonth('prev')}>
-            <ChevronLeft className="w-4 h-4" />
-          </Button>
-          <h2 className="text-lg font-medium text-foreground">
-            {format(currentDate, 'MMMM yyyy')}
-          </h2>
-          <Button variant="ghost" size="sm" onClick={() => navigateMonth('next')}>
-            <ChevronRight className="w-4 h-4" />
-          </Button>
-        </div>
-
-        {/* Legend */}
-        <AttendanceLegend className="mb-4" />
       </div>
 
-      {/* Calendar */}
-      <div className="flex-1 px-6 pb-20">
-        <Card className="p-4 shadow-[var(--shadow-medium)]">
+      {/* Content */}
+      <div className="flex-1 px-6 pb-24 space-y-6">
+        {/* Month Navigation */}
+        <Card className="p-6 bg-card/95 backdrop-blur-md">
+          <div className="flex items-center justify-between">
+            <Button variant="ghost" size="icon-sm" onClick={() => navigateMonth('prev')}>
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+            <h2 className="text-xl font-bold text-foreground">
+              {format(currentDate, 'MMMM yyyy')}
+            </h2>
+            <Button variant="ghost" size="icon-sm" onClick={() => navigateMonth('next')}>
+              <ChevronRight className="w-5 h-5" />
+            </Button>
+          </div>
+        </Card>
+
+        {/* Legend */}
+        <AttendanceLegend />
+
+        {/* Calendar */}
+        <Card className="p-6 bg-card/95 backdrop-blur-md shadow-[var(--shadow-medium)]">
           <Calendar
             mode="single"
             selected={selectedDate}

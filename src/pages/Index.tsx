@@ -77,7 +77,7 @@ const Index = () => {
   const showBottomNav = currentScreen !== 'welcome' && currentScreen !== 'login';
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen gradient-background">
       {currentScreen === 'welcome' && (
         <WelcomeScreen onRoleSelect={handleRoleSelect} />
       )}

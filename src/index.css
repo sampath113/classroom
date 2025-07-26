@@ -8,44 +8,53 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 210 11% 15%;
+    /* Professional purple gradient theme matching the screenshots */
+    --background: 270 50% 85%;
+    --background-gradient: linear-gradient(180deg, hsl(270 50% 85%) 0%, hsl(280 45% 88%) 100%);
+    --foreground: 240 10% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 11% 15%;
+    --card-foreground: 240 10% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 11% 15%;
+    --popover-foreground: 240 10% 15%;
 
-    --primary: 160 84% 39%;
+    /* Updated primary colors to match professional theme */
+    --primary: 240 100% 27%;
     --primary-foreground: 0 0% 100%;
-    
-    --primary-light: 160 84% 45%;
-    --primary-dark: 160 84% 35%;
 
-    --secondary: 160 20% 96%;
-    --secondary-foreground: 160 84% 20%;
+    --primary-light: 240 100% 35%;
+    --primary-dark: 240 100% 20%;
 
-    --muted: 210 40% 98%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Subtle secondary colors */
+    --secondary: 240 20% 96%;
+    --secondary-foreground: 240 10% 25%;
 
-    --accent: 160 20% 96%;
-    --accent-foreground: 160 84% 20%;
+    /* Muted colors for subtle elements */
+    --muted: 240 10% 96%;
+    --muted-foreground: 240 5% 55%;
 
-    --destructive: 0 84.2% 60.2%;
+    --accent: 240 20% 96%;
+    --accent-foreground: 240 10% 25%;
+
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 160 84% 39%;
-    
-    --success: 120 84% 45%;
+    /* Professional borders and inputs */
+    --border: 240 20% 90%;
+    --input: 240 20% 94%;
+    --ring: 240 100% 27%;
+
+    --success: 120 60% 50%;
     --warning: 38 92% 50%;
     --info: 210 84% 50%;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(160 84% 39%), hsl(160 84% 45%));
-    --shadow-soft: 0 2px 8px -2px hsl(160 84% 39% / 0.1);
-    --shadow-medium: 0 4px 16px -4px hsl(160 84% 39% / 0.15);
+
+    /* Professional gradients and shadows */
+    --gradient-primary: linear-gradient(135deg, hsl(240 100% 27%), hsl(240 100% 35%));
+    --gradient-background: linear-gradient(180deg, hsl(270 50% 85%) 0%, hsl(280 45% 88%) 100%);
+    --shadow-soft: 0 2px 12px -2px hsl(240 100% 27% / 0.08);
+    --shadow-medium: 0 4px 20px -4px hsl(240 100% 27% / 0.12);
+    --shadow-card: 0 2px 8px -1px hsl(240 10% 15% / 0.06);
 
     --radius: 0.5rem;
 
@@ -111,7 +120,9 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background: var(--background-gradient);
+    min-height: 100vh;
     /* Mobile-first optimizations */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -149,5 +160,40 @@ All colors MUST be HSL.
   ::-webkit-scrollbar-thumb {
     background: hsl(var(--muted-foreground) / 0.3);
     border-radius: 2px;
+  }
+}
+
+/* Professional mobile UI utilities */
+@layer utilities {
+  .mobile-container {
+    @apply max-w-md mx-auto px-6;
+  }
+
+  .professional-card {
+    @apply bg-card rounded-2xl shadow-[var(--shadow-card)] border-0;
+  }
+
+  .professional-button {
+    @apply rounded-2xl font-medium transition-all duration-200;
+  }
+
+  .professional-input {
+    @apply rounded-2xl border-input bg-input/50 backdrop-blur-sm;
+  }
+
+  .status-bar-height {
+    @apply pt-12;
+  }
+
+  .gradient-background {
+    background: var(--background-gradient);
+  }
+
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+
+  .mobile-safe-area {
+    @apply pb-safe-bottom pt-safe-top;
   }
 }

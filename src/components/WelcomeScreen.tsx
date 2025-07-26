@@ -17,22 +17,25 @@ export const WelcomeScreen = ({ onRoleSelect }: WelcomeScreenProps) => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen gradient-background flex flex-col">
+      {/* Status Bar Spacing */}
+      <div className="status-bar-height" />
+
       {/* Header */}
-      <div className="flex-shrink-0 pt-16 pb-8 px-6 text-center">
-        <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
-          <GraduationCap className="w-8 h-8 text-primary-foreground" />
+      <div className="flex-shrink-0 pt-8 pb-8 px-6 text-center">
+        <div className="w-20 h-20 bg-card rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-[var(--shadow-card)]">
+          <GraduationCap className="w-10 h-10 text-primary" />
         </div>
-        <h1 className="text-2xl font-bold text-foreground mb-2">AttendanceTracker</h1>
-        <p className="text-muted-foreground">Smart attendance management for everyone</p>
+        <h1 className="text-3xl font-bold text-foreground mb-3">AttendanceTracker</h1>
+        <p className="text-muted-foreground text-lg">Smart attendance management for everyone</p>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 px-6">
-        <div className="max-w-md mx-auto">
-          <h2 className="text-xl font-semibold text-foreground mb-6">Who are you?</h2>
-          
-          <div className="space-y-4 mb-8">
+        <div className="mobile-container">
+          <h2 className="text-2xl font-semibold text-foreground mb-8 text-center">Who are you?</h2>
+
+          <div className="space-y-6 mb-12">
             <RoleCard
               icon="🎓"
               title="Student"
@@ -40,7 +43,7 @@ export const WelcomeScreen = ({ onRoleSelect }: WelcomeScreenProps) => {
               selected={selectedRole === 'student'}
               onClick={() => setSelectedRole('student')}
             />
-            
+
             <RoleCard
               icon="👨‍🏫"
               title="Teacher"
@@ -53,19 +56,19 @@ export const WelcomeScreen = ({ onRoleSelect }: WelcomeScreenProps) => {
       </div>
 
       {/* Footer */}
-      <div className="flex-shrink-0 p-6">
-        <div className="max-w-md mx-auto">
+      <div className="flex-shrink-0 p-6 pb-8">
+        <div className="mobile-container">
           <Button
-            variant="rounded"
+            variant="default"
             size="lg"
-            className="w-full"
+            className="w-full h-14 text-lg font-semibold"
             disabled={!selectedRole}
             onClick={handleContinue}
           >
             Continue
           </Button>
-          
-          <p className="text-xs text-muted-foreground text-center mt-4">
+
+          <p className="text-sm text-muted-foreground text-center mt-6 opacity-80">
             You can change your role later in settings
           </p>
         </div>

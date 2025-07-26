@@ -182,66 +182,69 @@ export const AlertsScreen = ({ userRole, onBack, className }: AlertsScreenProps)
   };
 
   return (
-    <div className={`min-h-screen bg-background flex flex-col ${className}`}>
+    <div className={`min-h-screen gradient-background flex flex-col ${className}`}>
+      {/* Status Bar Spacing */}
+      <div className="status-bar-height" />
+
       {/* Header */}
-      <div className="flex-shrink-0 bg-background border-b border-border">
-        <div className="flex items-center justify-between p-4">
-          <div className="flex items-center space-x-3">
+      <div className="flex-shrink-0 bg-card/50 backdrop-blur-md border-b border-border/30">
+        <div className="flex items-center justify-between p-6">
+          <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
-              size="icon"
+              size="icon-sm"
               onClick={onBack}
-              className="h-10 w-10"
+              className="bg-card/50 backdrop-blur-sm"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div>
-              <h1 className="text-lg font-semibold text-foreground">Smart Alerts</h1>
-              <p className="text-sm text-muted-foreground">
+              <h1 className="text-xl font-bold text-foreground">Smart Alerts</h1>
+              <p className="text-base text-muted-foreground">
                 {userRole === 'teacher' ? 'Class insights & notifications' : 'Your attendance insights'}
               </p>
             </div>
           </div>
-          <Badge variant="secondary" className="text-sm">
+          <Badge variant="secondary" className="text-base px-3 py-1 rounded-full">
             {activeAlerts.length} active
           </Badge>
         </div>
       </div>
 
       {/* Content */}
-      <ScrollArea className="flex-1 p-4">
+      <ScrollArea className="flex-1 p-6">
         {activeAlerts.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-64 text-center">
-            <CheckCircle className="h-12 w-12 text-green-500 mb-4" />
-            <h3 className="text-lg font-medium text-foreground mb-2">All caught up!</h3>
-            <p className="text-muted-foreground">No new alerts or notifications.</p>
+            <CheckCircle className="h-16 w-16 text-green-500 mb-6" />
+            <h3 className="text-xl font-semibold text-foreground mb-3">All caught up!</h3>
+            <p className="text-muted-foreground text-lg">No new alerts or notifications.</p>
           </div>
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-6">
             {activeAlerts.map((alert) => (
-              <Card 
-                key={alert.id} 
-                className={`p-4 border-l-4 ${getAlertBorderColor(alert.type)} shadow-sm`}
+              <Card
+                key={alert.id}
+                className={`p-6 border-l-4 ${getAlertBorderColor(alert.type)} shadow-[var(--shadow-card)] bg-card/95 backdrop-blur-md`}
               >
                 <div className="flex items-start justify-between">
-                  <div className="flex items-start space-x-3 flex-1">
+                  <div className="flex items-start space-x-4 flex-1">
                     {getAlertIcon(alert.type)}
                     <div className="flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <h3 className="font-medium text-foreground">{alert.title}</h3>
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="font-semibold text-lg text-foreground">{alert.title}</h3>
                         <Button
                           variant="ghost"
-                          size="icon"
+                          size="icon-sm"
                           onClick={() => dismissAlert(alert.id)}
-                          className="h-6 w-6 text-muted-foreground hover:text-foreground"
+                          className="text-muted-foreground hover:text-foreground"
                         >
-                          <X className="h-4 w-4" />
+                          <X className="h-5 w-5" />
                         </Button>
                       </div>
-                      <p className="text-sm text-muted-foreground mb-2">{alert.message}</p>
+                      <p className="text-base text-muted-foreground mb-4">{alert.message}</p>
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-muted-foreground flex items-center">
-                          <Clock className="h-3 w-3 mr-1" />
+                        <span className="text-sm text-muted-foreground flex items-center">
+                          <Clock className="h-4 w-4 mr-2" />
                           {alert.timestamp}
                         </span>
                         {alert.actionable && (
@@ -249,7 +252,7 @@ export const AlertsScreen = ({ userRole, onBack, className }: AlertsScreenProps)
                             variant="outline"
                             size="sm"
                             onClick={() => handleTakeAction(alert)}
-                            className="text-xs"
+                            className="text-sm font-medium"
                           >
                             Take Action
                           </Button>
@@ -265,28 +268,28 @@ export const AlertsScreen = ({ userRole, onBack, className }: AlertsScreenProps)
 
         {/* Quick Insights */}
         {userRole === 'student' && (
-          <div className="mt-8 space-y-4">
-            <h2 className="text-lg font-semibold text-foreground">Quick Insights</h2>
-            
-            <div className="grid grid-cols-1 gap-4">
-              <Card className="p-4">
-                <div className="flex items-center space-x-3">
-                  <TrendingUp className="h-5 w-5 text-green-500" />
+          <div className="mt-12 space-y-6">
+            <h2 className="text-xl font-bold text-foreground">Quick Insights</h2>
+
+            <div className="grid grid-cols-1 gap-6">
+              <Card className="p-6 bg-card/95 backdrop-blur-md">
+                <div className="flex items-center space-x-4">
+                  <TrendingUp className="h-6 w-6 text-green-500" />
                   <div>
-                    <h3 className="font-medium text-foreground">Improvement Tip</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <h3 className="font-semibold text-lg text-foreground">Improvement Tip</h3>
+                    <p className="text-base text-muted-foreground">
                       Attend 3 more classes to reach your 90% goal
                     </p>
                   </div>
                 </div>
               </Card>
 
-              <Card className="p-4">
-                <div className="flex items-center space-x-3">
-                  <Users className="h-5 w-5 text-blue-500" />
+              <Card className="p-6 bg-card/95 backdrop-blur-md">
+                <div className="flex items-center space-x-4">
+                  <Users className="h-6 w-6 text-blue-500" />
                   <div>
-                    <h3 className="font-medium text-foreground">Class Ranking</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <h3 className="font-semibold text-lg text-foreground">Class Ranking</h3>
+                    <p className="text-base text-muted-foreground">
                       You're ranked 12th out of 30 students
                     </p>
                   </div>
@@ -297,17 +300,17 @@ export const AlertsScreen = ({ userRole, onBack, className }: AlertsScreenProps)
         )}
 
         {userRole === 'teacher' && (
-          <div className="mt-8 space-y-4">
-            <h2 className="text-lg font-semibold text-foreground">Class Overview</h2>
-            
-            <div className="grid grid-cols-2 gap-4">
-              <Card className="p-4 text-center">
-                <div className="text-2xl font-bold text-green-600 mb-1">85%</div>
-                <p className="text-sm text-muted-foreground">Weekly Average</p>
+          <div className="mt-12 space-y-6">
+            <h2 className="text-xl font-bold text-foreground">Class Overview</h2>
+
+            <div className="grid grid-cols-2 gap-6">
+              <Card className="p-6 text-center bg-card/95 backdrop-blur-md">
+                <div className="text-3xl font-bold text-green-600 mb-2">85%</div>
+                <p className="text-base text-muted-foreground">Weekly Average</p>
               </Card>
-              <Card className="p-4 text-center">
-                <div className="text-2xl font-bold text-blue-600 mb-1">5</div>
-                <p className="text-sm text-muted-foreground">Perfect Attendance</p>
+              <Card className="p-6 text-center bg-card/95 backdrop-blur-md">
+                <div className="text-3xl font-bold text-blue-600 mb-2">5</div>
+                <p className="text-base text-muted-foreground">Perfect Attendance</p>
               </Card>
             </div>
           </div>

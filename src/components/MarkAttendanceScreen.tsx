@@ -73,48 +73,51 @@ export const MarkAttendanceScreen = ({ onBack, className }: MarkAttendanceScreen
   });
 
   return (
-    <div className={`min-h-screen bg-background flex flex-col ${className}`}>
+    <div className={`min-h-screen gradient-background flex flex-col ${className}`}>
+      {/* Status Bar Spacing */}
+      <div className="status-bar-height" />
+
       {/* Header */}
-      <div className="flex-shrink-0 bg-background border-b border-border">
-        <div className="flex items-center justify-between p-4">
-          <div className="flex items-center space-x-3">
+      <div className="flex-shrink-0 bg-card/50 backdrop-blur-md border-b border-border/30">
+        <div className="flex items-center justify-between p-6">
+          <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
-              size="icon"
+              size="icon-sm"
               onClick={onBack}
-              className="h-10 w-10"
+              className="bg-card/50 backdrop-blur-sm"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div>
-              <h1 className="text-lg font-semibold text-foreground">Mark Attendance</h1>
-              <p className="text-sm text-muted-foreground">CS101 - Data Structures</p>
+              <h1 className="text-xl font-bold text-foreground">Mark Attendance</h1>
+              <p className="text-base text-muted-foreground">CS101 - Data Structures</p>
             </div>
           </div>
-          <Badge variant="secondary" className="text-sm">
-            {currentDate}
+          <Badge variant="secondary" className="text-base px-3 py-1 rounded-full">
+            Today
           </Badge>
         </div>
 
         {/* Filter Tabs */}
-        <div className="px-4 pb-4">
-          <div className="flex space-x-2">
+        <div className="px-6 pb-6">
+          <div className="flex space-x-3">
             <Button
               variant={filter === 'all' ? 'default' : 'outline'}
-              size="sm"
+              size="default"
               onClick={() => setFilter('all')}
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-2 h-12 px-6"
             >
-              <Users className="h-4 w-4" />
+              <Users className="h-5 w-5" />
               <span>All ({totalCount})</span>
             </Button>
             <Button
               variant={filter === 'present' ? 'default' : 'outline'}
-              size="sm"
+              size="default"
               onClick={() => setFilter('present')}
-              className="flex items-center space-x-2"
+              className="flex items-center space-x-2 h-12 px-6"
             >
-              <UserCheck className="h-4 w-4" />
+              <UserCheck className="h-5 w-5" />
               <span>Present ({presentCount})</span>
             </Button>
             <Button

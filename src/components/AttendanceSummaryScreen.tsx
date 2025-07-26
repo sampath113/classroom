@@ -52,47 +52,50 @@ export const AttendanceSummaryScreen = ({ userName, onBack, className }: Attenda
   };
 
   return (
-    <div className={`min-h-screen bg-background flex flex-col ${className}`}>
+    <div className={`min-h-screen gradient-background flex flex-col ${className}`}>
+      {/* Status Bar Spacing */}
+      <div className="status-bar-height" />
+
       {/* Header */}
-      <div className="flex-shrink-0 bg-background border-b border-border">
-        <div className="flex items-center justify-between p-4">
-          <div className="flex items-center space-x-3">
+      <div className="flex-shrink-0 bg-card/50 backdrop-blur-md border-b border-border/30">
+        <div className="flex items-center justify-between p-6">
+          <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
-              size="icon"
+              size="icon-sm"
               onClick={onBack}
-              className="h-10 w-10"
+              className="bg-card/50 backdrop-blur-sm"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div>
-              <h1 className="text-lg font-semibold text-foreground">My Attendance</h1>
-              <p className="text-sm text-muted-foreground">Detailed statistics & trends</p>
+              <h1 className="text-xl font-bold text-foreground">My Attendance</h1>
+              <p className="text-base text-muted-foreground">Detailed statistics & trends</p>
             </div>
           </div>
-          <Badge variant="secondary" className="text-sm">
+          <Badge variant="secondary" className="text-base px-3 py-1 rounded-full">
             {stats.attendancePercentage}%
           </Badge>
         </div>
       </div>
 
       {/* Content */}
-      <div className="flex-1 p-4 space-y-6">
+      <div className="flex-1 p-6 pb-24 space-y-8">
         {/* Quick Stats */}
-        <div className="grid grid-cols-2 gap-4">
-          <Card className="p-4 text-center">
-            <div className="flex items-center justify-center mb-2">
-              <Flame className="h-5 w-5 text-orange-500 mr-2" />
-              <span className="text-2xl font-bold text-foreground">{stats.currentStreak}</span>
+        <div className="grid grid-cols-2 gap-6">
+          <Card className="p-6 text-center bg-card/95 backdrop-blur-md">
+            <div className="flex items-center justify-center mb-3">
+              <Flame className="h-6 w-6 text-orange-500 mr-3" />
+              <span className="text-3xl font-bold text-foreground">{stats.currentStreak}</span>
             </div>
-            <p className="text-sm text-muted-foreground">Current Streak</p>
+            <p className="text-base text-muted-foreground">Current Streak</p>
           </Card>
-          <Card className="p-4 text-center">
-            <div className="flex items-center justify-center mb-2">
-              <Award className="h-5 w-5 text-yellow-500 mr-2" />
-              <span className="text-2xl font-bold text-foreground">{stats.longestStreak}</span>
+          <Card className="p-6 text-center bg-card/95 backdrop-blur-md">
+            <div className="flex items-center justify-center mb-3">
+              <Award className="h-6 w-6 text-yellow-500 mr-3" />
+              <span className="text-3xl font-bold text-foreground">{stats.longestStreak}</span>
             </div>
-            <p className="text-sm text-muted-foreground">Best Streak</p>
+            <p className="text-base text-muted-foreground">Best Streak</p>
           </Card>
         </div>
 

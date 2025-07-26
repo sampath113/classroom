@@ -16,65 +16,68 @@ export const StudentDashboard = ({ userName, onNavigate }: StudentDashboardProps
   const attendedClasses = 39;
 
   return (
-    <div className="flex-1 px-6 pb-20 pt-6 space-y-6">
+    <div className="flex-1 px-6 pb-24 pt-8 space-y-8">
+      {/* Status Bar Spacing */}
+      <div className="status-bar-height" />
+
       {/* Greeting */}
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-foreground mb-2">
+        <h1 className="text-3xl font-bold text-foreground mb-3">
           Hi, {userName} 👋
         </h1>
-        <p className="text-muted-foreground">Let's check your attendance progress</p>
+        <p className="text-muted-foreground text-lg">Let's check your attendance progress</p>
       </div>
 
       {/* Today's Status Card */}
-      <Card className="p-6 shadow-[var(--shadow-medium)]">
+      <Card className="p-8 shadow-[var(--shadow-medium)] bg-card/95 backdrop-blur-md">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="font-semibold text-foreground mb-1">Today's Status</h3>
-            <div className="flex items-center space-x-2">
+            <h3 className="font-semibold text-lg text-foreground mb-2">Today's Status</h3>
+            <div className="flex items-center space-x-3">
               {todayStatus === "present" ? (
                 <>
-                  <CheckCircle className="w-5 h-5 text-success" />
-                  <span className="text-success font-medium">Present 🎉</span>
+                  <CheckCircle className="w-6 h-6 text-success" />
+                  <span className="text-success font-semibold text-lg">Present 🎉</span>
                 </>
               ) : todayStatus === "absent" ? (
                 <>
-                  <XCircle className="w-5 h-5 text-destructive" />
-                  <span className="text-destructive font-medium">Absent</span>
+                  <XCircle className="w-6 h-6 text-destructive" />
+                  <span className="text-destructive font-semibold text-lg">Absent</span>
                 </>
               ) : (
-                <span className="text-muted-foreground">No class today</span>
+                <span className="text-muted-foreground text-lg">No class today</span>
               )}
             </div>
           </div>
-          <div className="text-4xl">
+          <div className="text-5xl">
             {todayStatus === "present" ? "✅" : todayStatus === "absent" ? "❌" : "📅"}
           </div>
         </div>
       </Card>
 
       {/* Attendance Overview */}
-      <Card className="p-6 shadow-[var(--shadow-medium)]">
-        <h3 className="font-semibold text-foreground mb-4">Attendance Overview</h3>
-        <div className="grid grid-cols-2 gap-4">
+      <Card className="p-8 shadow-[var(--shadow-medium)] bg-card/95 backdrop-blur-md">
+        <h3 className="font-semibold text-lg text-foreground mb-6">Attendance Overview</h3>
+        <div className="grid grid-cols-2 gap-6">
           <div className="text-center">
-            <div className="text-2xl font-bold text-primary mb-1">
+            <div className="text-3xl font-bold text-primary mb-2">
               {attendancePercentage}%
             </div>
-            <div className="text-sm text-muted-foreground">Overall</div>
+            <div className="text-base text-muted-foreground">Overall</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-primary mb-1">
+            <div className="text-3xl font-bold text-primary mb-2">
               {attendedClasses}/{totalClasses}
             </div>
-            <div className="text-sm text-muted-foreground">Classes</div>
+            <div className="text-base text-muted-foreground">Classes</div>
           </div>
         </div>
-        
+
         {/* Progress Bar */}
-        <div className="mt-4">
-          <div className="w-full bg-secondary rounded-full h-2">
-            <div 
-              className="bg-primary h-2 rounded-full transition-all duration-300"
+        <div className="mt-6">
+          <div className="w-full bg-secondary rounded-full h-3">
+            <div
+              className="bg-primary h-3 rounded-full transition-all duration-500 shadow-sm"
               style={{ width: `${attendancePercentage}%` }}
             />
           </div>
@@ -82,46 +85,46 @@ export const StudentDashboard = ({ userName, onNavigate }: StudentDashboardProps
       </Card>
 
       {/* Current Streak */}
-      <Card className="p-6 shadow-[var(--shadow-medium)] bg-gradient-to-r from-primary/5 to-primary-light/5">
+      <Card className="p-8 shadow-[var(--shadow-medium)] bg-gradient-to-r from-primary/10 to-primary-light/10 backdrop-blur-md">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="font-semibold text-foreground mb-1">Current Streak</h3>
-            <div className="flex items-center space-x-2">
-              <span className="text-2xl">🔥</span>
-              <span className="text-xl font-bold text-primary">{currentStreak} days</span>
+            <h3 className="font-semibold text-lg text-foreground mb-3">Current Streak</h3>
+            <div className="flex items-center space-x-3">
+              <span className="text-3xl">🔥</span>
+              <span className="text-2xl font-bold text-primary">{currentStreak} days</span>
             </div>
           </div>
-          <Button 
-            variant="outline" 
+          <Button
+            variant="professional"
             onClick={() => onNavigate('streaks')}
-            className="rounded-xl"
+            className="h-12 px-6"
           >
-            <Target className="w-4 h-4 mr-2" />
+            <Target className="w-5 h-5 mr-2" />
             Goals
           </Button>
         </div>
       </Card>
 
       {/* Action Buttons */}
-      <div className="grid grid-cols-2 gap-4">
-        <Button 
-          variant="outline" 
-          size="lg" 
-          onClick={() => onNavigate('calendar')}
-          className="rounded-xl h-16 flex-col"
-        >
-          <Calendar className="w-5 h-5 mb-1" />
-          <span className="text-sm">Calendar</span>
-        </Button>
-        
+      <div className="grid grid-cols-2 gap-6">
         <Button
-          variant="outline"
+          variant="professional"
+          size="lg"
+          onClick={() => onNavigate('calendar')}
+          className="h-20 flex-col space-y-2"
+        >
+          <Calendar className="w-6 h-6" />
+          <span className="text-base font-medium">Calendar</span>
+        </Button>
+
+        <Button
+          variant="professional"
           size="lg"
           onClick={() => onNavigate('attendance-summary')}
-          className="rounded-xl h-16 flex-col"
+          className="h-20 flex-col space-y-2"
         >
-          <TrendingUp className="w-5 h-5 mb-1" />
-          <span className="text-sm">Summary</span>
+          <TrendingUp className="w-6 h-6" />
+          <span className="text-base font-medium">Summary</span>
         </Button>
       </div>
     </div>

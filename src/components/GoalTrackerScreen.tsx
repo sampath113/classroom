@@ -74,28 +74,31 @@ export const GoalTrackerScreen = ({ userName, onBack, className }: GoalTrackerSc
   };
 
   return (
-    <div className={`min-h-screen bg-background flex flex-col ${className}`}>
+    <div className={`min-h-screen gradient-background flex flex-col ${className}`}>
+      {/* Status Bar Spacing */}
+      <div className="status-bar-height" />
+
       {/* Header */}
-      <div className="flex-shrink-0 bg-background border-b border-border">
-        <div className="flex items-center justify-between p-4">
-          <div className="flex items-center space-x-3">
+      <div className="flex-shrink-0 bg-card/50 backdrop-blur-md border-b border-border/30">
+        <div className="flex items-center justify-between p-6">
+          <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
-              size="icon"
+              size="icon-sm"
               onClick={onBack}
-              className="h-10 w-10"
+              className="bg-card/50 backdrop-blur-sm"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
             <div>
-              <h1 className="text-lg font-semibold text-foreground">Goal Tracker</h1>
-              <p className="text-sm text-muted-foreground">Track your progress & streaks</p>
+              <h1 className="text-xl font-bold text-foreground">Goal Tracker</h1>
+              <p className="text-base text-muted-foreground">Track your progress & streaks</p>
             </div>
           </div>
           <Dialog open={isGoalDialogOpen} onOpenChange={setIsGoalDialogOpen}>
             <DialogTrigger asChild>
-              <Button variant="outline" size="sm">
-                <Settings className="h-4 w-4 mr-2" />
+              <Button variant="outline" size="default" className="h-12 px-6">
+                <Settings className="h-5 w-5 mr-2" />
                 Set Goal
               </Button>
             </DialogTrigger>
