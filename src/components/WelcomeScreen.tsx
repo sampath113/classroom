@@ -17,13 +17,13 @@ export const WelcomeScreen = ({ onRoleSelect }: WelcomeScreenProps) => {
   };
 
   return (
-    <div className="min-h-screen gradient-background flex flex-col">
+    <div className="mobile-page gradient-background">
       {/* Status Bar Spacing */}
       <div className="status-bar-height" />
 
       {/* Header */}
-      <div className="flex-shrink-0 pt-16 pb-16 px-6 text-center">
-        <div className="w-16 h-16 bg-card rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-[var(--shadow-card)]">
+      <div className="flex-shrink-0 pt-12 pb-8 safe-area-padding text-center">
+        <div className="w-16 h-16 bg-card rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-[var(--shadow-card)]">
           <span className="text-2xl">📋</span>
         </div>
         <h1 className="text-2xl font-bold text-foreground mb-3">AttendanceTracker</h1>
@@ -31,11 +31,11 @@ export const WelcomeScreen = ({ onRoleSelect }: WelcomeScreenProps) => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 px-6">
+      <div className="flex-1 safe-area-padding">
         <div className="mobile-container">
-          <h2 className="text-xl font-medium text-foreground mb-8 text-center">Choose your role</h2>
+          <h2 className="text-xl font-medium text-foreground mb-6 text-center">Choose your role</h2>
 
-          <div className="space-y-4 mb-12">
+          <div className="mobile-form-spacing mb-8">
             <RoleCard
               icon="👤"
               title="Student"
@@ -56,19 +56,19 @@ export const WelcomeScreen = ({ onRoleSelect }: WelcomeScreenProps) => {
       </div>
 
       {/* Footer */}
-      <div className="flex-shrink-0 p-6 pb-8">
+      <div className="flex-shrink-0 safe-area-padding pb-8">
         <div className="mobile-container">
           <Button
             variant="default"
             size="lg"
-            className="w-full h-12 text-base font-medium"
+            className="mobile-button w-full"
             disabled={!selectedRole}
             onClick={handleContinue}
           >
             Continue
           </Button>
 
-          <p className="text-sm text-muted-foreground text-center mt-6">
+          <p className="text-sm text-muted-foreground text-center mt-4">
             You can change this later
           </p>
         </div>

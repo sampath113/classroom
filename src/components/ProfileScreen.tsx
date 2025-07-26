@@ -72,48 +72,47 @@ export const ProfileScreen = ({
   };
 
   return (
-    <div className={`min-h-screen gradient-background flex flex-col ${className}`}>
+    <div className={`mobile-page gradient-background ${className}`}>
       {/* Status Bar Spacing */}
       <div className="status-bar-height" />
 
       {/* Header */}
-      <div className="flex-shrink-0 bg-card border-b border-border">
-        <div className="flex items-center justify-between p-4">
-          <div className="flex items-center space-x-3">
-            <Button
-              variant="ghost"
-              size="icon-sm"
-              onClick={onBack}
-            >
-              <ArrowLeft className="h-4 w-4" />
-            </Button>
-            <div>
-              <h1 className="text-lg font-semibold text-foreground">Profile</h1>
-              <p className="text-sm text-muted-foreground">Manage your account</p>
-            </div>
+      <div className="mobile-header">
+        <div className="flex items-center space-x-3">
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            onClick={onBack}
+            className="touch-target"
+          >
+            <ArrowLeft className="h-4 w-4" />
+          </Button>
+          <div>
+            <h1 className="text-lg font-semibold text-foreground">Profile</h1>
+            <p className="text-sm text-muted-foreground">Manage your account</p>
           </div>
         </div>
       </div>
 
       {/* Content */}
-      <div className="flex-1 p-6 space-y-8">
+      <div className="mobile-content pt-4">
         {/* Profile Card */}
-        <Card className="p-8 bg-card/95 backdrop-blur-md">
-          <div className="flex items-center space-x-6 mb-6">
-            <Avatar className="h-20 w-20">
+        <Card className="mobile-card-spacing bg-card/95 backdrop-blur-md">
+          <div className="flex items-center space-x-4 mb-6">
+            <Avatar className="h-16 w-16 sm:h-20 sm:w-20">
               <AvatarImage src="" alt={userName} />
-              <AvatarFallback className="text-xl font-bold bg-primary text-primary-foreground">
+              <AvatarFallback className="text-lg sm:text-xl font-bold bg-primary text-primary-foreground">
                 {getInitials(userName)}
               </AvatarFallback>
             </Avatar>
             <div className="flex-1">
-              <h2 className="text-2xl font-bold text-foreground">{userName}</h2>
-              <div className="flex items-center space-x-3 mt-2">
-                <Badge variant="secondary" className="capitalize text-base px-3 py-1">
+              <h2 className="text-xl sm:text-2xl font-bold text-foreground">{userName}</h2>
+              <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 mt-2">
+                <Badge variant="secondary" className="capitalize text-sm sm:text-base px-3 py-1 w-fit">
                   {userRole}
                 </Badge>
                 {rollNumber && (
-                  <Badge variant="outline" className="text-base px-3 py-1">
+                  <Badge variant="outline" className="text-sm sm:text-base px-3 py-1 w-fit">
                     {rollNumber}
                   </Badge>
                 )}

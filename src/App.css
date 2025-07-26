@@ -1,8 +1,18 @@
+/* Mobile-first root container */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  /* Remove text-align center to allow components to control their own alignment */
+}
+
+/* Desktop container - only apply max-width and centering on larger screens */
+@media (min-width: 768px) {
+  #root {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
 }
 
 .logo {

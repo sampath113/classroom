@@ -156,21 +156,76 @@ All colors MUST be HSL.
   }
 }
 
-/* Simple mobile UI utilities */
+/* Enhanced mobile UI utilities */
 @layer utilities {
+  /* Mobile container with responsive padding */
   .mobile-container {
-    @apply max-w-md mx-auto px-4;
+    @apply max-w-md mx-auto px-4 sm:px-6;
   }
 
+  /* Professional mobile page container */
+  .mobile-page {
+    @apply min-h-screen w-full flex flex-col;
+  }
+
+  /* Mobile content area with proper spacing */
+  .mobile-content {
+    @apply flex-1 px-4 sm:px-6 pb-20 space-y-4;
+  }
+
+  /* Mobile header with consistent spacing */
+  .mobile-header {
+    @apply flex-shrink-0 px-4 sm:px-6 py-4 bg-card/50 backdrop-blur-md border-b border-border/30;
+  }
+
+  /* Status bar height with device-specific padding */
   .status-bar-height {
-    @apply pt-8;
+    @apply pt-8 sm:pt-4;
   }
 
+  /* Safe area padding for modern devices */
+  .safe-area-padding {
+    @apply px-4 sm:px-6;
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  /* Mobile card spacing */
+  .mobile-card-spacing {
+    @apply p-4 sm:p-6;
+  }
+
+  /* Mobile button sizing */
+  .mobile-button {
+    @apply h-12 text-base font-medium min-h-[48px];
+  }
+
+  /* Mobile input sizing for better touch targets */
+  .mobile-input {
+    @apply h-12 text-base min-h-[48px];
+  }
+
+  /* Gradient background */
   .gradient-background {
     background: var(--background-gradient);
   }
 
+  /* Mobile safe area support */
   .mobile-safe-area {
     @apply pb-safe-bottom pt-safe-top;
+  }
+
+  /* Professional spacing utilities */
+  .mobile-section-spacing {
+    @apply space-y-6;
+  }
+
+  .mobile-form-spacing {
+    @apply space-y-4;
+  }
+
+  /* Touch-friendly interactive elements */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
   }
 }

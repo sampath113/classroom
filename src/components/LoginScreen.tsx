@@ -32,14 +32,14 @@ export const LoginScreen = ({ role, onBack, onLogin }: LoginScreenProps) => {
   const isFormValid = formData.name && formData.rollNumber && formData.classCode;
 
   return (
-    <div className="min-h-screen gradient-background flex flex-col">
+    <div className="mobile-page gradient-background">
       {/* Status Bar Spacing */}
       <div className="status-bar-height" />
 
       {/* Header */}
-      <div className="flex-shrink-0 pt-4 pb-8 px-6">
-        <div className="flex items-center mb-8">
-          <Button variant="ghost" size="icon-sm" onClick={onBack} className="mr-3">
+      <div className="mobile-header">
+        <div className="flex items-center">
+          <Button variant="ghost" size="icon-sm" onClick={onBack} className="mr-3 touch-target">
             <ArrowLeft className="w-5 h-5" />
           </Button>
           <div className="flex items-center">
@@ -57,10 +57,10 @@ export const LoginScreen = ({ role, onBack, onLogin }: LoginScreenProps) => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 px-6">
+      <div className="flex-1 safe-area-padding pt-4">
         <div className="mobile-container">
-          <Card className="p-6 shadow-[var(--shadow-card)]">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <Card className="mobile-card-spacing shadow-[var(--shadow-card)]">
+            <form onSubmit={handleSubmit} className="mobile-section-spacing">
               <div className="space-y-3">
                 <Label htmlFor="name" className="text-base font-medium text-foreground">
                   Full Name
@@ -73,7 +73,7 @@ export const LoginScreen = ({ role, onBack, onLogin }: LoginScreenProps) => {
                     placeholder="Enter your full name"
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    className="pl-10"
+                    className="mobile-input pl-10"
                   />
                 </div>
               </div>
@@ -90,7 +90,7 @@ export const LoginScreen = ({ role, onBack, onLogin }: LoginScreenProps) => {
                     placeholder={role === 'student' ? "Enter roll number" : "Enter teacher ID"}
                     value={formData.rollNumber}
                     onChange={(e) => handleInputChange('rollNumber', e.target.value)}
-                    className="pl-10"
+                    className="mobile-input pl-10"
                   />
                 </div>
               </div>
@@ -107,7 +107,7 @@ export const LoginScreen = ({ role, onBack, onLogin }: LoginScreenProps) => {
                     placeholder="Enter class code"
                     value={formData.classCode}
                     onChange={(e) => handleInputChange('classCode', e.target.value)}
-                    className="pl-10"
+                    className="mobile-input pl-10"
                   />
                 </div>
               </div>
@@ -117,12 +117,12 @@ export const LoginScreen = ({ role, onBack, onLogin }: LoginScreenProps) => {
       </div>
 
       {/* Footer */}
-      <div className="flex-shrink-0 p-6 pb-8">
-        <div className="mobile-container space-y-4">
+      <div className="flex-shrink-0 safe-area-padding pb-8">
+        <div className="mobile-container mobile-form-spacing">
           <Button
             variant="default"
             size="lg"
-            className="w-full h-12 text-base font-medium"
+            className="mobile-button w-full"
             disabled={!isFormValid}
             onClick={handleSubmit}
           >
@@ -130,12 +130,12 @@ export const LoginScreen = ({ role, onBack, onLogin }: LoginScreenProps) => {
           </Button>
 
           {role === 'teacher' && (
-            <Button variant="outline" size="lg" className="w-full h-14 text-lg font-medium">
+            <Button variant="outline" size="lg" className="mobile-button w-full">
               Create New Class
             </Button>
           )}
 
-          <p className="text-sm text-muted-foreground text-center mt-4 opacity-80">
+          <p className="text-sm text-muted-foreground text-center opacity-80">
             Make sure to enter the correct class code provided by your {role === 'student' ? 'teacher' : 'institution'}
           </p>
         </div>

@@ -16,12 +16,12 @@ export const StudentDashboard = ({ userName, onNavigate }: StudentDashboardProps
   const attendedClasses = 39;
 
   return (
-    <div className="flex-1 px-6 pb-24 pt-8 space-y-6">
+    <div className="mobile-content pt-4">
       {/* Status Bar Spacing */}
       <div className="status-bar-height" />
 
       {/* Greeting */}
-      <div className="text-center">
+      <div className="text-center mb-6">
         <h1 className="text-2xl font-semibold text-foreground mb-2">
           Hi, {userName} 👋
         </h1>
@@ -29,7 +29,7 @@ export const StudentDashboard = ({ userName, onNavigate }: StudentDashboardProps
       </div>
 
       {/* Today's Status Card */}
-      <Card className="p-6 shadow-[var(--shadow-card)]">
+      <Card className="mobile-card-spacing shadow-[var(--shadow-card)]">
         <div className="flex items-center justify-between">
           <div>
             <h3 className="font-medium text-base text-foreground mb-2">Today's Status</h3>
@@ -56,7 +56,7 @@ export const StudentDashboard = ({ userName, onNavigate }: StudentDashboardProps
       </Card>
 
       {/* Attendance Overview */}
-      <Card className="p-6 shadow-[var(--shadow-card)]">
+      <Card className="mobile-card-spacing shadow-[var(--shadow-card)]">
         <h3 className="font-medium text-base text-foreground mb-4">Attendance Overview</h3>
         <div className="grid grid-cols-2 gap-4">
           <div className="text-center">
@@ -85,7 +85,7 @@ export const StudentDashboard = ({ userName, onNavigate }: StudentDashboardProps
       </Card>
 
       {/* Current Streak */}
-      <Card className="p-6 shadow-[var(--shadow-card)]">
+      <Card className="mobile-card-spacing shadow-[var(--shadow-card)]">
         <div className="flex items-center justify-between">
           <div>
             <h3 className="font-medium text-base text-foreground mb-2">Current Streak</h3>
@@ -97,7 +97,7 @@ export const StudentDashboard = ({ userName, onNavigate }: StudentDashboardProps
           <Button
             variant="outline"
             onClick={() => onNavigate('streaks')}
-            className="h-10 px-4"
+            className="touch-target px-4"
           >
             <Target className="w-4 h-4 mr-2" />
             Goals
@@ -110,7 +110,7 @@ export const StudentDashboard = ({ userName, onNavigate }: StudentDashboardProps
         <Button
           variant="outline"
           onClick={() => onNavigate('calendar')}
-          className="h-12 flex-col space-y-1"
+          className="mobile-button flex-col space-y-1"
         >
           <Calendar className="w-4 h-4" />
           <span className="text-sm">Calendar</span>
@@ -119,7 +119,7 @@ export const StudentDashboard = ({ userName, onNavigate }: StudentDashboardProps
         <Button
           variant="outline"
           onClick={() => onNavigate('attendance-summary')}
-          className="h-12 flex-col space-y-1"
+          className="mobile-button flex-col space-y-1"
         >
           <TrendingUp className="w-4 h-4" />
           <span className="text-sm">Summary</span>

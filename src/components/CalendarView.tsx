@@ -110,14 +110,14 @@ export const CalendarView = ({ userRole, onBack }: CalendarViewProps) => {
   };
 
   return (
-    <div className="min-h-screen gradient-background flex flex-col">
+    <div className="mobile-page gradient-background">
       {/* Status Bar Spacing */}
       <div className="status-bar-height" />
 
       {/* Header */}
-      <div className="flex-shrink-0 bg-card/50 backdrop-blur-md border-b border-border/30">
-        <div className="flex items-center justify-between p-6">
-          <Button variant="ghost" size="icon-sm" onClick={onBack} className="bg-card/50 backdrop-blur-sm">
+      <div className="mobile-header">
+        <div className="flex items-center justify-between">
+          <Button variant="ghost" size="icon-sm" onClick={onBack} className="touch-target bg-card/50 backdrop-blur-sm">
             <ArrowLeft className="w-5 h-5" />
           </Button>
           <h1 className="text-xl font-bold text-foreground">Attendance Calendar</h1>
@@ -126,17 +126,17 @@ export const CalendarView = ({ userRole, onBack }: CalendarViewProps) => {
       </div>
 
       {/* Content */}
-      <div className="flex-1 px-6 pb-24 space-y-6">
+      <div className="mobile-content pt-4">
         {/* Month Navigation */}
-        <Card className="p-6 bg-card/95 backdrop-blur-md">
+        <Card className="mobile-card-spacing bg-card/95 backdrop-blur-md">
           <div className="flex items-center justify-between">
-            <Button variant="ghost" size="icon-sm" onClick={() => navigateMonth('prev')}>
+            <Button variant="ghost" size="icon-sm" onClick={() => navigateMonth('prev')} className="touch-target">
               <ChevronLeft className="w-5 h-5" />
             </Button>
             <h2 className="text-xl font-bold text-foreground">
               {format(currentDate, 'MMMM yyyy')}
             </h2>
-            <Button variant="ghost" size="icon-sm" onClick={() => navigateMonth('next')}>
+            <Button variant="ghost" size="icon-sm" onClick={() => navigateMonth('next')} className="touch-target">
               <ChevronRight className="w-5 h-5" />
             </Button>
           </div>
@@ -146,7 +146,7 @@ export const CalendarView = ({ userRole, onBack }: CalendarViewProps) => {
         <AttendanceLegend />
 
         {/* Calendar */}
-        <Card className="p-4 shadow-[var(--shadow-card)]">
+        <Card className="mobile-card-spacing shadow-[var(--shadow-card)]">
           <Calendar
             mode="single"
             selected={selectedDate}
@@ -165,14 +165,14 @@ export const CalendarView = ({ userRole, onBack }: CalendarViewProps) => {
               nav_button_next: "absolute right-1",
               table: "w-full border-collapse space-y-1",
               head_row: "flex",
-              head_cell: "text-muted-foreground rounded-md w-8 font-normal text-[0.8rem]",
+              head_cell: "text-muted-foreground rounded-md w-10 font-normal text-[0.8rem] sm:w-8",
               row: "flex w-full mt-2",
               cell: cn(
                 "relative p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-accent [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected].day-range-end)]:rounded-r-md",
-                "h-8 w-8"
+                "h-10 w-10 sm:h-8 sm:w-8"
               ),
               day: cn(
-                "h-8 w-8 p-0 font-normal aria-selected:opacity-100 hover:bg-accent hover:text-accent-foreground cursor-pointer rounded-md relative",
+                "h-10 w-10 sm:h-8 sm:w-8 p-0 font-normal aria-selected:opacity-100 hover:bg-accent hover:text-accent-foreground cursor-pointer rounded-md relative touch-target",
                 "flex items-center justify-center"
               ),
               day_range_end: "day-range-end",
@@ -187,7 +187,7 @@ export const CalendarView = ({ userRole, onBack }: CalendarViewProps) => {
               DayContent: ({ date }) => (
                 <div className="relative w-full h-full flex items-center justify-center">
                   <span className="text-sm">{format(date, 'd')}</span>
-                  <div 
+                  <div
                     className={cn(
                       "absolute bottom-0.5 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full",
                       getAttendanceDot(date)
