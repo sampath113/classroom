@@ -33,56 +33,96 @@ A modern, mobile-first classroom attendance tracking application built with Reac
 - **Responsive**: Works seamlessly across all device sizes
 - **Accessibility**: WCAG compliant with proper ARIA labels
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🚀 Tech Stack
 
-Follow these steps:
+- **Frontend**: React 18 + TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Charts**: Recharts for data visualization
+- **Routing**: React Router DOM
+- **Notifications**: Sonner for toast messages
+- **Icons**: Lucide React
+- **Build Tool**: Vite
+- **Package Manager**: npm/yarn/bun
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🛠️ Installation
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Prerequisites
+- Node.js 18+ or Bun
+- npm, yarn, or bun package manager
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Setup
+```bash
+# Clone the repository
+git clone https://github.com/sampath113/classroom.git
+cd classroom
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Install dependencies
+npm install
+# or
+yarn install
+# or
+bun install
+
+# Start development server
 npm run dev
+# or
+yarn dev
+# or
+bun run dev
 ```
 
-**Edit a file directly in GitHub**
+### Build for Production
+```bash
+npm run build
+npm run preview
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📂 Project Structure
 
-**Use GitHub Codespaces**
+```
+src/
+├── components/           # React components
+│   ├── ui/              # shadcn/ui base components
+│   ├── WelcomeScreen.tsx
+│   ├── LoginScreen.tsx
+│   ├── StudentDashboard.tsx
+│   ├── TeacherDashboard.tsx
+│   ├── MarkAttendanceScreen.tsx
+│   ├── AttendanceSummaryScreen.tsx
+│   ├── AlertsScreen.tsx
+│   ├── GoalTrackerScreen.tsx
+│   ├── ProfileScreen.tsx
+│   └── CalendarView.tsx
+├── pages/               # Page components
+├── hooks/               # Custom React hooks
+├── lib/                 # Utility functions
+└── main.tsx            # App entry point
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📱 Complete User Journey
 
-## What technologies are used for this project?
+1. **Welcome Screen** → Role selection (Student/Teacher)
+2. **Login Screen** → Enter name, roll number, class code
+3. **Dashboard** → Role-based home screen with quick actions
+4. **Calendar View** → Visual attendance patterns
+5. **Mark Attendance** (Teachers) → Quick student attendance marking
+6. **Attendance Summary** (Students) → Detailed stats with charts
+7. **Goal Tracker** → Set goals and track streaks
+8. **Smart Alerts** → Attendance warnings and insights
+9. **Profile & Settings** → Account management and preferences
 
-This project is built with:
+## 🤝 Contributing
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## How can I deploy this project?
+## 📄 License
 
-Simply open [Lovable](https://lovable.dev/projects/2f15758a-592e-4913-aa2e-6e2ccac5a3e2) and click on Share -> Publish.
+This project is licensed under the MIT License.
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Made with ❤️ for better education management
